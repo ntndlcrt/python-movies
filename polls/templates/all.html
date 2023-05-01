@@ -1,7 +1,38 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>All Data</h1>
+<h1>Predict your chances to like a movie</h1>
 
-<h1>{{ data.hello }}</h1>
+<p>
+    Select informations about your movie in order to help our algorithm
+    determine wether you're likely to enjoy it or not.
+</p>
+
+<form action="#" method="POST">
+    <div>
+        <label for="genre">Genre :</label>
+        <select name="genre" id="genre">
+            {% for genre in genres %}
+            <option value="{{ genre }}">{{ genre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="country">Country :</label>
+        <select name="country" id="country">
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="release_year">Release year :</label>
+        <select name="release_year" id="release_year">
+            {% for release_year in release_years %}
+            <option value="{{ release_year }}">{{ release_year }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Predict</button>
+</form>
 
 {% endblock %}
